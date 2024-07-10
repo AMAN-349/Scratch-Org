@@ -2,14 +2,14 @@
  * @description       : 
  * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
  * @group             : 
- * @last modified on  : 06-29-2024
+ * @last modified on  : 07-10-2024
  * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
 **/
 public with sharing class AccountContactController {
     @AuraEnabled(cacheable = true)
     public static List<Contact> getContacts(){
         return [SELECT Id, Name, FirstName,LastName, Phone, Email, Account.Name FROM Contact
-        Where AccountId != '' Order by LastName DESC limit 10];
+        Where AccountId != '' Order by LastName DESC limit 20];
     }
     //Fetch all related cases 
     @AuraEnabled(cacheable = true)
