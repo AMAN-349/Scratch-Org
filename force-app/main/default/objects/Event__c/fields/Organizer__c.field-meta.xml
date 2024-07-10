@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Organizer__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Select your Event Organizer</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Select your Event Organizer</inlineHelpText>
+    <label>Organizer</label>
+    <referenceTo>Event_Organizer__c</referenceTo>
+    <relationshipLabel>Events</relationshipLabel>
+    <relationshipName>Events</relationshipName>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>

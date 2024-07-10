@@ -1,0 +1,40 @@
+<aura:component controller="WithSharingClass" implements="force:appHostable" >
+    <aura:attribute name="showSpinner" type="Boolean"></aura:attribute>
+    <aura:attribute name="numberOfRecords" type="Integer"></aura:attribute>
+    <aura:attribute name="showSecurityEnforcedTable" type="Boolean"></aura:attribute>
+    
+    <aura:if isTrue="{!v.showSpinner}">
+    	<lightning:spinner alternativeText="Loading" size="large" />
+    </aura:if>
+    
+	<lightning:button label="Count Records" onclick="{! c.getNumberOfAccounts}"></lightning:button>
+    <div class="slds-text-heading_large">Number Of Records: {!v.numberOfRecords}</div>
+   	<lightning:button label="DML on Record(Without Sharing)" onclick="{! c.dmlOnRecordWithoutSharing}"></lightning:button>
+    <lightning:button label="DML on Record(With Sharing)" onclick="{! c.dmlOnRecordWithSharing}"></lightning:button>
+    <lightning:button label="DML on Record(Inherited Sharing)" onclick="{! c.dmlOnRecordInheritedSharing}"></lightning:button>
+
+    <br/>
+    <br/>
+    
+   	<lightning:button label="Check CRUD" onclick="{! c.schemaCRUD}"></lightning:button>
+   	<lightning:button label="Check FLS" onclick="{! c.schemaFLS}"></lightning:button>
+
+    <br/>
+    <br/>
+
+    <lightning:button label="Strip Inaccessible(SOQL)" onclick="{! c.SOQLStripInaccessible}"></lightning:button>
+    <lightning:button label="Strip Inaccessible(DML)" onclick="{! c.DMLStripInaccessible}"></lightning:button>
+
+    <br/>
+    <br/>
+    
+ 	<lightning:button label="With Security Enforced" onclick="{! c.retrieveRecordsWithSecurityEnforced}"></lightning:button>
+ 	<lightning:button label="With Security Enforced(Where Clause)" onclick="{! c.retrieveRecordsWithSecurityEnforcedAndWhereClause}"></lightning:button>
+    <br/>
+    <br/>
+    
+    <lightning:button label="User Mode(SOQL)" onclick="{! c.userModeSOQL}"></lightning:button>
+ 	<lightning:button label="User Mode(DML)" onclick="{! c.userModeDML}"></lightning:button>
+
+        
+</aura:component>

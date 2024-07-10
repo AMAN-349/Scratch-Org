@@ -1,0 +1,65 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-06-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component
+  controller="StudentController"
+  implements="flexipage:availableForAllPageTypes,force:appHostable"
+  access="global"
+>
+  <aura:attribute name="firstName" type="String"  />
+  <aura:attribute name="lastName" type="String" />
+  <aura:attribute name="dateOfBirth" type="Date" />
+  <aura:attribute name="age" type="Integer" />
+  <aura:attribute name="gender" type="String" />
+  <aura:attribute name="mobileNumber" type="String" />
+  <aura:attribute name="graduated" type="Boolean" default="false" />
+
+  <div class="slds-var-p-around_medium">
+    <h1>Student Information</h1>
+
+    <lightning:input label="First Name" aura:id="firstName" value="{!v.firstName}" required="true"/>
+    <lightning:input label="Last Name" aura:id="lastName" value="{!v.lastName}" required="true"/>
+
+    <label class="slds-form-element__label" for="dob">Date of Birth</label>
+    <input
+      type="Date"
+      label="Date of Birth"
+      value="{!v.dateOfBirth}"
+      class="slds-input"
+    />
+
+    <lightning:input label="Age" aura:id="age" value="{!v.age}" type="number" maxlength="5"/>
+
+    <lightning:select label="Gender" value="{!v.gender}">
+      <option value="">Select</option>
+      <option value="Male">Male</option>
+      <option value="Female">Female</option>
+    </lightning:select>
+
+    <lightning:input
+      aura:id="mobileNumber"
+      label="Mobile Number"
+      value="{!v.mobileNumber}"
+      type="tel"
+      pattern="[0-9]{10}"
+      messageWhenPatternMismatch="Please enter a valid 10-digit mobile number."
+      required="true"
+    />
+
+    <lightning:input
+      type="checkbox"
+      label="Graduated"
+      checked="{!v.graduated}"
+    />
+
+    <lightning:button
+      label="Submit"
+      onclick="{!c.handleSubmit}"
+      class="slds-var-m-top_medium"
+    />
+  </div>
+</aura:component>

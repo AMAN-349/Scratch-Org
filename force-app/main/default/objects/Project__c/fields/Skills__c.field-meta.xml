@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Skills__c</fullName>
+    <externalId>false</externalId>
+    <label>Skills</label>
+    <required>false</required>
+    <trackTrending>false</trackTrending>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <controllingField>Categary__c</controllingField>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Leadership</fullName>
+                <default>false</default>
+                <label>Leadership</label>
+            </value>
+            <value>
+                <fullName>Decision Making</fullName>
+                <default>false</default>
+                <label>Decision Making</label>
+            </value>
+            <value>
+                <fullName>Empathy</fullName>
+                <default>false</default>
+                <label>Empathy</label>
+            </value>
+            <value>
+                <fullName>Java</fullName>
+                <default>false</default>
+                <label>Java</label>
+            </value>
+            <value>
+                <fullName>C++</fullName>
+                <default>false</default>
+                <label>C++</label>
+            </value>
+            <value>
+                <fullName>HTML</fullName>
+                <default>false</default>
+                <label>HTML</label>
+            </value>
+        </valueSetDefinition>
+        <valueSettings>
+            <controllingFieldValue>Soft Skills</controllingFieldValue>
+            <valueName>Leadership</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Soft Skills</controllingFieldValue>
+            <valueName>Decision Making</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Soft Skills</controllingFieldValue>
+            <valueName>Empathy</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Skills</controllingFieldValue>
+            <valueName>Java</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Skills</controllingFieldValue>
+            <valueName>C++</valueName>
+        </valueSettings>
+        <valueSettings>
+            <controllingFieldValue>Technical Skills</controllingFieldValue>
+            <valueName>HTML</valueName>
+        </valueSettings>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_Seats__c</fullName>
+    <description>Enter Maximum Seats in your Event</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Maximum Seats in Event</inlineHelpText>
+    <label>Max Seats</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackTrending>false</trackTrending>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

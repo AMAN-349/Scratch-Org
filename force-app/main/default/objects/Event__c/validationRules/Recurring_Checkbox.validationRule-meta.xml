@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Recurring_Checkbox</fullName>
+    <active>true</active>
+    <description>If Recurring checkbox is checked then user need to fill Frequency checkbox, is unchecked then User cannot select Frequency field</description>
+    <errorConditionFormula>IF(
+    Recurring__c, 
+    ISBLANK(TEXT(Frequency__c)), 
+    NOT(ISBLANK(TEXT(Frequency__c)))
+)</errorConditionFormula>
+    <errorMessage>Error Occurs</errorMessage>
+</ValidationRule>

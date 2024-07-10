@@ -1,0 +1,10 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <lightning:card title="Hello">
+        <aura:set attribute="body">
+            <p class="slds-p-horizontal_small">Card Body (custom component)</p>
+        </aura:set>
+        <aura:set attribute="footer">
+            <p>Card Footer</p>
+        </aura:set>
+    </lightning:card>
+</aura:component>

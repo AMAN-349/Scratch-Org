@@ -1,0 +1,71 @@
+/**
+ * @description       : 
+ * @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+ * @group             : 
+ * @last modified on  : 05-15-2024
+ * @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+**/
+@RestResource(urlMapping='/Case/*')
+global with sharing class CaseWebService {
+    @HttpGet
+    global static Case getCase() {
+        RestRequest request = RestContext.request;
+        String caseId = request.requestURI.substring(
+          request.requestURI.lastIndexOf('/')+1);
+        Case result =  [SELECT Status
+                        FROM Case
+                        WHERE Id = :caseId];
+        return result;
+    }
+
+    @HttpPost
+    global static ID createCase(String subject, String status,
+        String origin) {
+        Case thisCase = new Case(
+            Subject=subject,
+            Status=status,
+            Origin=origin);
+        insert thisCase;
+        return thisCase.Id;
+    }
+
+    @HttpPut
+    global static ID upsertCase(String subject, String status,
+        String origin, String priority, String id) {
+        Case thisCase = new Case(
+                Id=id,
+                Subject=subject,
+                Status=status,
+                Origin=origin,
+                Priority=priority);
+        upsert thisCase;
+        return thisCase.Id;
+    }
+
+    @HttpPatch
+    global static Case updateCaseFields() {
+        RestRequest request = RestContext.request;
+        String caseId = request.requestURI.substring(
+            request.requestURI.lastIndexOf('/')+1);
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
+        Map<String, Object> params = (Map<String, Object>)JSON.deserializeUntyped(request.requestbody.tostring());
+        for(String fieldName : params.keySet()) {
+            thisCase.put(fieldName, params.get(fieldName));
+        }
+        update thisCase;
+        return thisCase;
+    }
+
+    @HttpDelete
+    global static void deleteCase() {
+        RestRequest request = RestContext.request;
+        String caseId = request.requestURI.substring(
+            request.requestURI.lastIndexOf('/')+1);
+        Case thisCase = [SELECT Id FROM Case WHERE Id = :caseId];
+        delete thisCase;
+    }
+
+
+
+
+}

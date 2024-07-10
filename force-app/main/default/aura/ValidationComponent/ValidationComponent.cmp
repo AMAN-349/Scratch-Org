@@ -1,0 +1,56 @@
+<!--
+  @description       : 
+  @group             : 
+  @last modified on  : 06-06-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes" access="global">
+    <!-- Attributes -->
+    <aura:attribute name="records" type="List" default="[]" />
+    <aura:attribute name="columns" type="List" default="[]"/>
+    <aura:attribute name="first_name" type="String" />
+    <aura:attribute name="last_name" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="phone" type="String" />
+    <aura:attribute name="company" type="String" />
+    
+    <!-- Init Handler -->
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    
+    <!-- Form Layout -->
+    <div class="slds-grid slds-gutters slds-wrap slds-m-top_large">
+        <div class="slds-col slds-size_6-of-12">
+            <lightning:input aura:id="FirstName" label="First Name" required="true" value="{!v.first_name}" placeholder="First Name" />
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <lightning:input aura:id="LastName" label="Last Name" required="true" value="{!v.last_name}" placeholder="Last Name" />
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <lightning:input aura:id="Email" label="Work Email" required="true" value="{!v.email}" placeholder="Work Email" />
+        </div>
+        <div class="slds-col slds-size_6-of-12">
+            <lightning:input aura:id="Phone" label="Phone" required="true" value="{!v.phone}" placeholder="Phone Number" />
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:input aura:id="Company" label="Company" required="true" value="{!v.company}" placeholder="Company" />
+        </div>
+        <div class="slds-col slds-size_12-of-12">
+            <lightning:button class="slds-button slds-button_success slds-m-top_medium slds-p-left_xx-large slds-p-right_xx-large" label="Submit" onclick="{!c.Submit}" />
+        </div>
+    </div>
+
+    <aura:if isTrue="{!not(empty(v.errorMessage))}">
+        <div class="slds-text-color_error">
+            {!v.errorMessage}
+        </div>
+    </aura:if>
+
+    <!-- Data Table -->
+    <aura:if isTrue="{!not(empty(v.records))}">
+        <lightning:datatable
+            data="{!v.records}"
+            columns="{!v.columns}"
+            keyField="Id">
+        </lightning:datatable>
+    </aura:if>
+</aura:component>

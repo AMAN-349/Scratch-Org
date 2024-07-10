@@ -1,0 +1,46 @@
+<!--
+  @description       : 
+  @author            : ChangeMeIn@UserSettingsUnder.SFDoc
+  @group             : 
+  @last modified on  : 06-20-2024
+  @last modified by  : ChangeMeIn@UserSettingsUnder.SFDoc
+-->
+<template>
+    <lightning-card title="User Information Form">
+        <div class="slds-p-around_medium">
+            <lightning-input label="Name" name="name" value={formData.name} onchange={handleInputChange}></lightning-input>
+ 
+            <div class="slds-m-top_medium">
+                <lightning-radio-group
+                    label="Gender"
+                    name="gender"
+                    options={genderOptions}
+                    value={formData.gender}
+                    onchange={handleInputChange}>
+                </lightning-radio-group>
+            </div>
+ 
+            <lightning-input label="Email" name="email" type="email" data-id="email" value={formData.email} lwc:ref="EmailId" onchange={handleInputChange}></lightning-input>
+            <lightning-input label="Date of Birth" name="dob" type="date" value={formData.dob} onchange={handleInputChange}></lightning-input>
+            <lightning-textarea label="Address" name="address" value={formData.address} onchange={handleInputChange}></lightning-textarea>
+ 
+            <div class="slds-m-top_medium">
+                <lightning-button label="Cancel" variant="destructive" onclick={handleCancel}></lightning-button>
+                <lightning-button label="Submit" variant="brand" onclick={handleSubmit} class="slds-m-left_x-small" disabled={isSubmitDisabled}></lightning-button>
+            </div>
+            <div class="slds-m-top_medium">
+                <lightning-button label="Show Data" onclick={handleShowData}></lightning-button>
+            </div>
+        </div>
+    </lightning-card>
+ 
+<template if:true={showData}>
+        <lightning-card title="Stored Data">
+            <lightning-datatable
+                key-field="id"
+                data={dataTable}
+                columns={columns}>
+            </lightning-datatable>
+        </lightning-card>
+    </template>
+</template>

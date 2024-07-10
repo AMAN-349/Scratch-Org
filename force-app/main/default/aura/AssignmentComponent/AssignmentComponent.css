@@ -1,0 +1,51 @@
+.THIS .picture {
+    border: 1px solid #ccc;
+    height: 100%;
+    background-color: #999;
+    color: #fff;
+    transition: all 500ms;
+}    
+.THIS .zindex {
+    z-index: 0;
+    overflow: hidden;
+}
+.THIS .zindex img {
+    transition: all 500ms;
+}
+.THIS .layer {
+    z-index: 1;
+    background-color: rgba(200, 0, 0, 0.5);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    transition: all 2s;
+}
+.THIS .picture:hover {
+	background-color: white;
+    color:black;
+    transition: all 500ms;
+}
+.THIS .picture:hover .zindex img {
+    transform: scale(1.5);   
+    transition: all 1000ms;
+}
+.THIS .picture:hover .layer{
+    bottom: 100%;
+    transition: all 2s;
+}
+.THIS .subsupermost:hover{
+    background-color: black;
+    color: white;
+}
+.THIS .slds-dropdown-trigger:hover .slds-dropdown {
+    background-color: white;
+    color: black;
+    display: block;
+}
+.THIS .slds-dropdown {
+            display: none;
+}
+.THIS table tbody tr:nth-child(2n) {
+    background-color: #f2f2f2;
+}

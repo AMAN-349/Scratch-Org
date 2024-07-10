@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Attendee__c</fullName>
+    <description>Select Attendee</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Give Information about Attendee</inlineHelpText>
+    <label>Attendee</label>
+    <referenceTo>Attendee__c</referenceTo>
+    <relationshipLabel>Event-Attendees</relationshipLabel>
+    <relationshipName>Event_Attendees</relationshipName>
+    <relationshipOrder>1</relationshipOrder>
+    <reparentableMasterDetail>true</reparentableMasterDetail>
+    <trackTrending>false</trackTrending>
+    <type>MasterDetail</type>
+    <writeRequiresMasterRead>false</writeRequiresMasterRead>
+</CustomField>
